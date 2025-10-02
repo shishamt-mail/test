@@ -7,6 +7,11 @@ import Footer from './components/Footer'
 import ContactPage from './pages/ContactPage'
 import ProductPage from './pages/ProductPage'
 import SearchPage from './pages/SearchPage'
+import AdminLogin from './pages/admin/AdminLogin'
+import Dashboard from './pages/admin/Dashboard'
+import BrandsManager from './pages/admin/BrandsManager'
+import ProductsManager from './pages/admin/ProductsManager'
+import MessagesInbox from './pages/admin/MessagesInbox'
 import './App.css'
 
 function HomePage() {
@@ -151,6 +156,11 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/brands" element={<BrandsManager />} />
+          <Route path="/admin/products" element={<ProductsManager />} />
+          <Route path="/admin/messages" element={<MessagesInbox />} />
         </Routes>
         <Footer />
       </div>
