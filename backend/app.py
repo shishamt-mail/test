@@ -67,6 +67,7 @@ def get_all_brands():
 def create_brand():
     try:
         data = request.json
+        print(f"Received brand data: {data}")
         brand = {
             'name': data['name'],
             'slug': data['slug'],
@@ -79,10 +80,15 @@ def create_brand():
             'created_at': datetime.utcnow(),
             'updated_at': datetime.utcnow()
         }
+        print(f"Inserting brand: {brand}")
         result = brands_collection.insert_one(brand)
         brand['_id'] = str(result.inserted_id)
+        print(f"Brand created successfully with ID: {brand['_id']}")
         return jsonify(brand), 201
     except Exception as e:
+        print(f"Error creating brand: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/brands/<brand_id>', methods=['PUT'])

@@ -77,11 +77,13 @@ const BrandsManager = () => {
         resetForm();
         fetchBrands();
       } else {
-        alert('Failed to save brand');
+        const errorData = await response.json();
+        console.error('Failed to save brand:', response.status, errorData);
+        alert(`Failed to save brand: ${errorData.error || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('Error saving brand:', error);
-      alert('Error saving brand');
+      alert(`Error saving brand: ${error.message}`);
     }
   };
 
