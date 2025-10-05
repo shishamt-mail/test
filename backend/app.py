@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 MONGO_URI = "mongodb+srv://Daksh:Shishamt7894@cluster0.avgzcuo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tlsAllowInvalidCertificates=True)
 db = client['daksh_footwear']
 
 brands_collection = db['brands']
