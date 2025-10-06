@@ -59,45 +59,54 @@ const BrandSections = () => {
                 )}
               </div>
               <div className="relative">
-                <div className="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide smooth-scroll" data-scroller>
-                  <div className="absolute right-0 top-0 bottom-4 w-24 bg-gradient-to-l from-white/80 to-transparent pointer-events-none transition-opacity duration-300" data-scroll-hint></div>
-                  {productsByBrand[brand.slug]?.map((product) => (
-                    product.status === 'coming_soon' ? (
-                      <div key={product._id} className="product-card flex-shrink-0 w-72 sm:w-80 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 opacity-60 border border-gray-300">
-                        <div className="h-64 overflow-hidden relative">
-                          <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover object-top" />
-                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                            <span className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">Coming Soon</span>
+                {productsByBrand[brand.slug] && productsByBrand[brand.slug].length > 0 ? (
+                  <div className="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide smooth-scroll" data-scroller>
+                    <div className="absolute right-0 top-0 bottom-4 w-24 bg-gradient-to-l from-white/80 to-transparent pointer-events-none transition-opacity duration-300" data-scroll-hint></div>
+                    {productsByBrand[brand.slug].map((product) => {
+                      const hasImages = product.images && product.images.length > 0;
+                      const imageUrl = hasImages ? product.images[0] : 'https://via.placeholder.com/400x400?text=No+Image';
+
+                      return product.status === 'coming_soon' ? (
+                        <div key={product._id} className="product-card flex-shrink-0 w-72 sm:w-80 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 opacity-60 border border-gray-300">
+                          <div className="h-64 overflow-hidden relative">
+                            <img src={imageUrl} alt={product.name} className="w-full h-full object-cover object-top" onError={(e) => { e.target.src = 'https://via.placeholder.com/400x400?text=No+Image'; }} />
+                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                              <span className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">Coming Soon</span>
+                            </div>
+                          </div>
+                          <div className="p-6">
+                            <h3 className="text-lg font-semibold text-secondary mb-2">{product.name}</h3>
+                            <p className="text-gray-600 mb-4">{product.description}</p>
+                            <div className="flex justify-end items-center">
+                              <span className="!rounded-button whitespace-nowrap bg-gray-300 text-gray-500 px-4 py-2 text-sm cursor-not-allowed">
+                                Notify Me
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div className="p-6">
-                          <h3 className="text-lg font-semibold text-secondary mb-2">{product.name}</h3>
-                          <p className="text-gray-600 mb-4">{product.description}</p>
-                          <div className="flex justify-end items-center">
-                            <span className="!rounded-button whitespace-nowrap bg-gray-300 text-gray-500 px-4 py-2 text-sm cursor-not-allowed">
-                              Notify Me
-                            </span>
+                      ) : (
+                        <Link key={product._id} to={`/product/${product._id}`} className="product-card flex-shrink-0 w-72 sm:w-80 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 block group border border-gray-300">
+                          <div className="h-64 overflow-hidden">
+                            <img src={imageUrl} alt={product.name} className="w-full h-full object-cover object-top" onError={(e) => { e.target.src = 'https://via.placeholder.com/400x400?text=No+Image'; }} />
                           </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <Link key={product._id} to={`/product/${product._id}`} className="product-card flex-shrink-0 w-72 sm:w-80 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 block group border border-gray-300">
-                        <div className="h-64 overflow-hidden">
-                          <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover object-top" />
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-lg font-semibold text-secondary mb-2">{product.name}</h3>
-                          <p className="text-gray-600 mb-4">{product.description}</p>
-                          <div className="flex justify-end items-center">
-                            <span className="!rounded-button whitespace-nowrap bg-primary text-white px-4 py-2 text-sm group-hover:bg-red-700 transition-colors duration-200">
-                              View Details
-                            </span>
+                          <div className="p-6">
+                            <h3 className="text-lg font-semibold text-secondary mb-2">{product.name}</h3>
+                            <p className="text-gray-600 mb-4">{product.description}</p>
+                            <div className="flex justify-end items-center">
+                              <span className="!rounded-button whitespace-nowrap bg-primary text-white px-4 py-2 text-sm group-hover:bg-red-700 transition-colors duration-200">
+                                View Details
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    )
-                  ))}
-                </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-gray-600">No products available for this brand yet.</p>
+                  </div>
+                )}
               </div>
             </div>
           </section>
