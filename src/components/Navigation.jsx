@@ -32,7 +32,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="https://via.placeholder.com/150x50.png?text=Company+Logo" alt="Daksh FootWear Logo" className="h-12 w-auto" />
+            <img src="https://i.ibb.co/RGJSmN9b/image.png" alt="Daksh FootWear Logo" className="h-12 w-auto" />
           </div>
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center flex-1 space-x-12">
