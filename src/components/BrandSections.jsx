@@ -47,7 +47,7 @@ const BrandSections = () => {
         <div key={brand._id}>
           <section id={brand.slug} className={`py-16 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
             <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-12 opacity-0 animate-fade-in">
+              <div className="text-center mb-12">
                 <img src={brand.logo_url} alt={`${brand.name} Logo`} className="h-12 w-auto max-w-full object-contain mx-auto mb-4" />
                 <h2 className="sr-only">{brand.name}</h2>
                 <img src={brand.banner_url} alt={`${brand.name} Banner`} className="w-full h-auto object-cover mx-auto mb-6 rounded-lg" loading="lazy" decoding="async" width="1200" height="400" />
