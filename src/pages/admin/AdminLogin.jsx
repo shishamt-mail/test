@@ -94,9 +94,6 @@ const AdminLogin = () => {
           </form>
 
           <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 text-center">
-              Default credentials: shishamt / Shishamt7894
-            </p>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { productsAPI, brandsAPI } from '../services/api';
 
 const SearchPage = () => {
@@ -15,6 +15,7 @@ const SearchPage = () => {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +35,23 @@ const SearchPage = () => {
     };
     fetchData();
   }, []);
+
+  // Sync filters from URL query params (category, brand, q)
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(location.search);
+      const category = params.get('category');
+      const brand = params.get('brand');
+      const q = params.get('q') || params.get('query') || params.get('search');
+
+      if (category) setSelectedCategory(category);
+      if (brand) setSelectedBrand(brand);
+      if (q) setSearchTerm(q);
+    } catch (e) {
+      // ignore malformed query params
+      console.warn('Failed to parse query params for SearchPage', e);
+    }
+  }, [location.search]);
 
   useEffect(() => {
     const handleOutside = (e) => {

@@ -1,16 +1,90 @@
-# React + Vite
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║          DAKSH FOOTWEAR - ADMIN PANEL ACCESS                  ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📍 ADMIN PANEL URL:
+   http://localhost:5173/admin/login
 
-Currently, two official plugins are available:
+🔐 LOGIN CREDENTIALS:
+   Username: shishamt
+   Password: Shishamt7894
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   ⚠️  IMPORTANT: Case-sensitive! Type exactly as shown.
 
-## React Compiler
+═══════════════════════════════════════════════════════════════
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🎯 WHAT YOU CAN DO IN ADMIN PANEL:
 
-## Expanding the ESLint configuration
+   ✅ Add/Edit/Delete Brand Sections
+   ✅ Add/Edit/Delete Products
+   ✅ View Customer Messages
+   ✅ Manage Website Content
+   ✅ Control Navbar Items
+   ✅ Set Product Status (Available/Coming Soon/Hidden)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+═══════════════════════════════════════════════════════════════
+
+📋 QUICK ACCESS MENU:
+
+   Dashboard    - Overview and statistics
+   Brands       - Manage brand sections
+   Products     - Manage product catalog
+   Messages     - View customer inquiries
+
+═══════════════════════════════════════════════════════════════
+
+🖼️  IMAGE UPLOAD:
+
+   For logos, banners, and product images:
+   1. Go to: https://imgbb.com/
+   2. Upload your image
+   3. Copy the direct link
+   4. Paste in admin panel
+
+   📖 See IMAGE_UPLOAD_GUIDE.md for details
+
+═══════════════════════════════════════════════════════════════
+
+⚡ BEFORE ACCESSING ADMIN PANEL:
+
+   Make sure both servers are running:
+
+   Terminal 1 (Backend):
+   $ cd backend
+   $ python app.py
+
+   Terminal 2 (Frontend):
+   $ npm run dev
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTATION:
+
+   QUICK_START.md              - 5-minute setup
+   COMPLETE_SETUP_GUIDE.md     - Full setup instructions
+   ADMIN_PANEL_GUIDE.md        - How to use admin panel
+   IMAGE_UPLOAD_GUIDE.md       - Image hosting guide
+
+═══════════════════════════════════════════════════════════════
+
+🆘 NEED HELP?
+
+   Problem: Can't login
+   Solution: Check username/password spelling (case-sensitive!)
+
+   Problem: Page won't load
+   Solution: Ensure backend is running on port 5000
+
+   Problem: Images not showing
+   Solution: Use direct links from imgbb.com
+
+═══════════════════════════════════════════════════════════════
+
+✨ NO CODING REQUIRED!
+
+   Everything is managed through the visual admin panel.
+   Just fill forms, upload images, and click save!
+
+═══════════════════════════════════════════════════════════════

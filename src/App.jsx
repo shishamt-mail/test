@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import BrandSections from './components/BrandSections'
+import CategorySection from './components/CategorySection'
 import Footer from './components/Footer'
 import ContactPage from './pages/ContactPage'
 import ProductPage from './pages/ProductPage'
@@ -109,6 +110,7 @@ function HomePage() {
   return (
     <>
       <HeroSection />
+      <CategorySection />
       <BrandSections />
     </>
   );
@@ -144,12 +146,27 @@ function ScrollToHash() {
   return null;
 }
 
+// Scrolls to top on route (pathname) change. This fixes landing at the bottom
+// when navigating between routes.
+function ScrollToTopOnRouteChange() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Use instant jump to top so user doesn't see the old scroll position.
+    // Some pages may want smooth behavior, but jumping prevents landing at footer.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <div className="bg-white text-secondary font-sans overflow-x-hidden">
         <Navigation />
         <ScrollToHash />
+        <ScrollToTopOnRouteChange />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />

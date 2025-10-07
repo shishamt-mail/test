@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="font-['Pacifico'] text-2xl mb-4">Daksh FootWear</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Daksh FootWear</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Your trusted partner for premium wholesale and retail footwear solutions. We offer a comprehensive range of quality footwear from leading brands.
             </p>
